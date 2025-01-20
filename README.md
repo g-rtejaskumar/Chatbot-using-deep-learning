@@ -1,4 +1,6 @@
-<h1 style="text-align: center;"><strong>Chatbot-using-deep-learning</strong></h1>
+<div align="center">
+  <h1><strong>Chatbot-using-deep-learning</strong></h1>
+</div>
 
 ## Overview
 A chatterbot or chatbot aims to facilitate conversation between humans and machines. The machine is embedded with knowledge to identify sentences and make decisions to respond to questions. The response principle involves matching the input sentence from the user. The input sentence is scored to determine its similarity to reference sentences; a higher score indicates greater similarity.
@@ -22,7 +24,7 @@ In this project, sentence similarity is calculated using bigrams, which divide t
 3. **Set Up MySQL Database**:
    a. Install MySQL and create a new database for the chatbot.
    b. Update the database configuration in the project settings file (settings.py) with your database credentials:
-             ```python
+            \```
             DATABASES = {
                 'default': {
                     'ENGINE': 'django.db.backends.mysql',
@@ -33,10 +35,10 @@ In this project, sentence similarity is calculated using bigrams, which divide t
                     'PORT': '3306',
                 }
             }
-
-4. **Start the Server**:
+            \```
+5. **Start the Server**:
    python manage.py runserver
-5. **Access the Application**:
+6. **Access the Application**:
   a. Open your web browser and navigate to the link displayed in the terminal (e.g., http://127.0.0.1:8000/).
   b. Append /index.html at the end of the URL to open the main interface of the chatbot.
 
