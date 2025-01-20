@@ -22,16 +22,18 @@ In this project, sentence similarity is calculated using bigrams, which divide t
 3. **Set Up MySQL Database**:
    a. Install MySQL and create a new database for the chatbot.
    b. Update the database configuration in the project settings file (settings.py) with your database credentials:
-             DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.mysql',
-                'NAME': '<database_name>',
-                'USER': '<username>',
-                'PASSWORD': '<password>',
-                'HOST': 'localhost',
-                'PORT': '3306',
+             ```python
+            DATABASES = {
+                'default': {
+                    'ENGINE': 'django.db.backends.mysql',
+                    'NAME': '<database_name>',
+                    'USER': '<username>',
+                    'PASSWORD': '<password>',
+                    'HOST': 'localhost',
+                    'PORT': '3306',
+                }
             }
-        }
+
 4. **Start the Server**:
    python manage.py runserver
 5. **Access the Application**:
