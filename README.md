@@ -1,4 +1,4 @@
-# Chatbot-using-deep-learning
+<h1 style="text-align: center;"><strong>Chatbot-using-deep-learning</strong></h1>
 
 ## Overview
 A chatterbot or chatbot aims to facilitate conversation between humans and machines. The machine is embedded with knowledge to identify sentences and make decisions to respond to questions. The response principle involves matching the input sentence from the user. The input sentence is scored to determine its similarity to reference sentences; a higher score indicates greater similarity.
@@ -12,7 +12,6 @@ In this project, sentence similarity is calculated using bigrams, which divide t
 4. Pattern Matching: The chatbot employs pattern-matching techniques to identify and respond to user queries accurately.
 5. Web-Based Interface: The chatbot interface is web-based, providing an accessible and user-friendly platform for interaction.
 
-## Installation
 ## Installation
 1. **Clone the Repository**:
    ```bash
