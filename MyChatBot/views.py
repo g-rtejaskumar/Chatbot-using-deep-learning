@@ -1,8 +1,6 @@
 from django.shortcuts import render
-from django.template import RequestContext
-from django.contrib import messages
-import pymysql
 from django.http import HttpResponse
+from .models import Register
 import numpy
 import tflearn
 import tensorflow
@@ -79,41 +77,34 @@ def ChatData(request):
 
 def UserLogin(request):
     if request.method == 'POST':
-      username = request.POST.get('username', False)
-      password = request.POST.get('password', False)
-      index = 0
-      con = pymysql.connect(host='127.0.0.1',port = 3306,user = 'root', password = 'root', database = 'chatbot',charset='utf8')
-      with con:    
-          cur = con.cursor()
-          cur.execute("select * FROM register")
-          rows = cur.fetchall()
-          for row in rows: 
-             if row[0] == username and password == row[1]:
-                index = 1
-                break		
-      if index == 1:
-       context= {'data':'welcome '+username}
-       return render(request, 'UserScreen.html', context)
-      else:
-       context= {'data':'login failed'}
-       return render(request, 'User.html', context)
+        username = request.POST.get('username', False)
+        password = request.POST.get('password', False)
+        try:
+            user = Register.objects.get(username=username, password=password)
+            context = {'data': 'welcome ' + username}
+            return render(request, 'UserScreen.html', context)
+        except Register.DoesNotExist:
+            context = {'data': 'login failed'}
+            return render(request, 'User.html', context)
 
 def Signup(request):
     if request.method == 'POST':
-      username = request.POST.get('username', False)
-      password = request.POST.get('password', False)
-      contact = request.POST.get('contact', False)
-      email = request.POST.get('email', False)
-      address = request.POST.get('address', False)
-      db_connection = pymysql.connect(host='127.0.0.1',port = 3306,user = 'root', password = 'root', database = 'chatbot',charset='utf8')
-      db_cursor = db_connection.cursor()
-      student_sql_query = "INSERT INTO register(username,password,contact,email,address) VALUES('"+username+"','"+password+"','"+contact+"','"+email+"','"+address+"')"
-      db_cursor.execute(student_sql_query)
-      db_connection.commit()
-      print(db_cursor.rowcount, "Record Inserted")
-      if db_cursor.rowcount == 1:
-       context= {'data':'Signup Process Completed'}
-       return render(request, 'Register.html', context)
-      else:
-       context= {'data':'Error in signup process'}
-       return render(request, 'Register.html', context)
+        username = request.POST.get('username', False)
+        password = request.POST.get('password', False)
+        contact = request.POST.get('contact', False)
+        email = request.POST.get('email', False)
+        address = request.POST.get('address', False)
+        
+        try:
+            Register.objects.create(
+                username=username,
+                password=password,
+                contact=contact,
+                email=email,
+                address=address
+            )
+            context = {'data': 'Signup Process Completed'}
+        except Exception as e:
+            context = {'data': 'Error in signup process'}
+        
+        return render(request, 'Register.html', context)
