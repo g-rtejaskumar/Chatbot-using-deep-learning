@@ -1,11 +1,11 @@
 import nltk
-#nltk.download()
 from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
 
 import numpy
 import tflearn
-import tensorflow
+import tensorflow.compat.v1 as tensorflow
+tensorflow.disable_v2_behavior()
 import random
 import json
 import pickle

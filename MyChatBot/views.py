@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from .models import Register
 import numpy
 import tflearn
-import tensorflow
+import tensorflow.compat.v1 as tensorflow
+tensorflow.disable_v2_behavior()
 import random
 import json
 import pickle
