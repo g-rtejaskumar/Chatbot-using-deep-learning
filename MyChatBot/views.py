@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Register
 import numpy
 import tflearn
 import tensorflow.compat.v1 as tensorflow
@@ -41,25 +40,9 @@ def bag_of_words(s, words):
             
     return numpy.array(bag)
 
-def MyChatBot(request):
+def UserScreen(request):
     if request.method == 'GET':
-       return render(request, 'index.html', {})
-
-def User(request):
-    if request.method == 'GET':
-       return render(request, 'User.html', {})
-
-def Logout(request):
-    if request.method == 'GET':
-       return render(request, 'index.html', {})
-
-def test(request):
-    if request.method == 'GET':
-       return render(request, 'test.html', {})
-
-def Register(request):
-    if request.method == 'GET':
-       return render(request, 'Register.html', {})
+        return render(request, 'UserScreen.html', {})
 
 def ChatData(request):
     if request.method == 'GET':
@@ -75,37 +58,3 @@ def ChatData(request):
         
         print(question+" "+str)
         return HttpResponse(str, content_type="text/plain")
-
-def UserLogin(request):
-    if request.method == 'POST':
-        username = request.POST.get('username', False)
-        password = request.POST.get('password', False)
-        try:
-            user = Register.objects.get(username=username, password=password)
-            context = {'data': 'welcome ' + username}
-            return render(request, 'UserScreen.html', context)
-        except Register.DoesNotExist:
-            context = {'data': 'login failed'}
-            return render(request, 'User.html', context)
-
-def Signup(request):
-    if request.method == 'POST':
-        username = request.POST.get('username', False)
-        password = request.POST.get('password', False)
-        contact = request.POST.get('contact', False)
-        email = request.POST.get('email', False)
-        address = request.POST.get('address', False)
-        
-        try:
-            Register.objects.create(
-                username=username,
-                password=password,
-                contact=contact,
-                email=email,
-                address=address
-            )
-            context = {'data': 'Signup Process Completed'}
-        except Exception as e:
-            context = {'data': 'Error in signup process'}
-        
-        return render(request, 'Register.html', context)

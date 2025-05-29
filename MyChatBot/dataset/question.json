@@ -1,33 +1,542 @@
-{"intents": [
-        {"tag": "greeting",
-         "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day", "Whats up"],
-         "responses": ["Hello!", "Good to see you again!", "Hi there, how can I help?"],
-         "context_set": ""
-        },
-        {"tag": "goodbye",
-         "patterns": ["cya", "See you later", "Goodbye", "I am Leaving", "Have a Good day"],
-         "responses": ["Sad to see you go :(", "Talk to you later", "Goodbye!"],
-         "context_set": ""
-        },
-        {"tag": "age",
-         "patterns": ["how old", "how old is tim", "what is your age", "how old are you", "age?"],
-         "responses": ["I am 18 years old!", "18 years young!"],
-         "context_set": ""
-        },
-        {"tag": "name",
-         "patterns": ["what is your name", "what should I call you", "whats your name?"],
-         "responses": ["You can call me Tim.", "I'm Tim!", "I'm Tim aka Tech With Tim."],
-         "context_set": ""
-        },
-        {"tag": "shop",
-         "patterns": ["Id like to buy something", "whats on the menu", "what do you reccommend?", "could i get something to eat"],
-         "responses": ["We sell chocolate chip cookies for $2!", "Cookies are on the menu!"],
-         "context_set": ""
-        },
-        {"tag": "hours",
-         "patterns": ["when are you guys open", "what are your hours", "hours of operation"],
-         "responses": ["We are open 7am-4pm Monday-Friday!"],
-         "context_set": ""
-        }
-   ]
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hey",
+        "Hello",
+        "Good morning",
+        "Good afternoon",
+        "Good evening",
+        "What's up",
+        "How are you",
+        "Is anyone there?",
+        "Hello there",
+        "Hi there",
+        "Nice to meet you",
+        "Greetings",
+        "Howdy",
+        "Hiya"
+      ],
+      "responses": [
+        "Hello! How can I help you today?",
+        "Hi there! What can I do for you?",
+        "Greetings! How may I assist you?",
+        "Hello! I'm here to help. What do you need?"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Bye",
+        "See you later",
+        "Goodbye",
+        "Take care",
+        "Have a good one",
+        "Until next time",
+        "I'm leaving",
+        "Have a nice day",
+        "Talk to you later",
+        "I need to go",
+        "Catch you later",
+        "I'm off",
+        "Farewell",
+        "Ciao",
+        "Adios"
+      ],
+      "responses": [
+        "Goodbye! Have a great day!",
+        "Take care! Come back if you need anything.",
+        "Bye! Looking forward to our next chat.",
+        "See you later! Don't hesitate to return if you need help."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "Thanks",
+        "Thank you",
+        "That's helpful",
+        "Thanks a lot",
+        "I appreciate it",
+        "Thank you so much",
+        "That's very helpful",
+        "You're the best",
+        "Great help",
+        "Much appreciated"
+      ],
+      "responses": [
+        "You're welcome! Let me know if you need anything else.",
+        "Happy to help! Is there anything else you'd like to know?",
+        "Anytime! Feel free to ask more questions.",
+        "Glad I could help! Don't hesitate to ask if you need more assistance."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "about",
+      "patterns": [
+        "What are you",
+        "Who are you",
+        "What do you do",
+        "What can you help me with",
+        "Tell me about yourself",
+        "What are your capabilities",
+        "How can you help me",
+        "What's your purpose",
+        "How do you work",
+        "What were you made for"
+      ],
+      "responses": [
+        "I'm an AI chatbot designed to help answer your questions and assist with various tasks.",
+        "I'm your virtual assistant, ready to help with information and answers to your questions.",
+        "Think of me as your helpful digital friend. I can answer questions and provide assistance on various topics.",
+        "I'm an AI-powered chatbot, trained to help you with information and answers."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "help",
+      "patterns": [
+        "Help",
+        "I need help",
+        "Can you help me",
+        "What can you do",
+        "How does this work",
+        "I'm stuck",
+        "Support",
+        "Assist me",
+        "Give me a hand",
+        "I'm confused"
+      ],
+      "responses": [
+        "I can help you with various topics. Just ask your question, and I'll do my best to assist!",
+        "Sure! What kind of help do you need? Feel free to ask any question.",
+        "I'm here to help! What would you like to know?",
+        "I can provide information and assistance on many topics. What's on your mind?"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "weather",
+      "patterns": [
+        "What's the weather like",
+        "How's the weather",
+        "Is it going to rain",
+        "Weather forecast",
+        "Temperature today",
+        "Will it be sunny",
+        "Weather report",
+        "Is it cold outside",
+        "Weather conditions"
+      ],
+      "responses": [
+        "I'm not connected to real-time weather data, but I can help you find a weather service!",
+        "For accurate weather information, I recommend checking a weather app or website.",
+        "While I can't check the weather directly, I can suggest some reliable weather resources."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "jokes",
+      "patterns": [
+        "Tell me a joke",
+        "Say something funny",
+        "Make me laugh",
+        "Do you know any jokes",
+        "Tell me something funny",
+        "I need a laugh",
+        "Got any jokes",
+        "Humor me",
+        "Entertain me"
+      ],
+      "responses": [
+        "Why don't programmers like nature? It has too many bugs!",
+        "What did the computer do at lunchtime? Had a byte!",
+        "Why do developers prefer dark mode? Because light attracts bugs!",
+        "How many programmers does it take to change a light bulb? None, that's a hardware problem!",
+        "Why was the JavaScript developer sad? Because he didn't know how to 'null' his feelings.",
+        "Why did the developer go broke? Because he used up all his cache!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "time",
+      "patterns": [
+        "What time is it",
+        "Do you have the time",
+        "What's the current time",
+        "Tell me the time",
+        "Current time",
+        "What's the time now",
+        "Got the time",
+        "Time check"
+      ],
+      "responses": [
+        "I don't have access to real-time clock data, but you can check your device's time!",
+        "You can find the current time on your device's clock.",
+        "I can't tell time, but your device's clock can help with that!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "name",
+      "patterns": [
+        "What's your name",
+        "What should I call you",
+        "Do you have a name",
+        "Who am I talking to",
+        "What are you called",
+        "Your name please",
+        "Tell me your name",
+        "How do I address you"
+      ],
+      "responses": [
+        "You can call me ChatBot! I'm here to help.",
+        "I'm ChatBot, your friendly AI assistant!",
+        "My name is ChatBot, nice to meet you!",
+        "I go by ChatBot. How can I assist you today?"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "features",
+      "patterns": [
+        "What can you do",
+        "List your features",
+        "What are your functions",
+        "How can you help me",
+        "Show me what you can do",
+        "What are you capable of",
+        "What services do you offer",
+        "What are your abilities"
+      ],
+      "responses": [
+        "I can help you with general questions, provide information, tell jokes, and engage in friendly conversation!",
+        "I'm capable of answering questions, providing assistance, and having pleasant chats.",
+        "My features include answering questions, helping with information, and engaging in conversation.",
+        "I can assist with various topics, share some jokes, and have friendly discussions!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "age",
+      "patterns": [
+        "How old are you",
+        "What's your age",
+        "When were you created",
+        "When were you born",
+        "What's your birthday",
+        "How long have you existed"
+      ],
+      "responses": [
+        "I'm a digital assistant, so I don't age like humans do. I was created recently!",
+        "I don't have an age in the traditional sense. I'm a digital creation!",
+        "I was born in the digital world, so I don't have a conventional age.",
+        "Let's just say I'm young in AI years!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "creator",
+      "patterns": [
+        "Who made you",
+        "Who created you",
+        "Who is your creator",
+        "Who built you",
+        "Who programmed you",
+        "Who designed you",
+        "Who developed you"
+      ],
+      "responses": [
+        "I was created by a team of developers interested in AI and natural language processing.",
+        "I'm the product of developers who wanted to build a helpful chatbot.",
+        "My creators are developers who specialize in artificial intelligence.",
+        "I was developed by people passionate about making helpful AI assistants."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "location",
+      "patterns": [
+        "Where are you",
+        "Where are you located",
+        "Where do you live",
+        "What's your location",
+        "Where are you from",
+        "Where are you based"
+      ],
+      "responses": [
+        "I exist in the digital world! I don't have a physical location.",
+        "I live in the cloud, ready to help whenever you need me.",
+        "I don't have a physical location - I'm a digital assistant that lives in computer systems.",
+        "I'm based wherever my servers are hosted, but I can help you from anywhere!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "feelings",
+      "patterns": [
+        "Do you have feelings",
+        "Can you feel emotions",
+        "Are you sentient",
+        "Do you feel happy",
+        "Can you feel sad",
+        "Do you have emotions",
+        "Are you conscious",
+        "Do you feel"
+      ],
+      "responses": [
+        "I'm an AI program, so I don't experience emotions like humans do.",
+        "I don't have feelings in the human sense, but I'm designed to be helpful and friendly!",
+        "I don't experience emotions, but I'm programmed to understand and respond to human emotions.",
+        "As an AI, I don't have subjective experiences or emotions, but I'm here to assist you!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "food",
+      "patterns": [
+        "What do you eat",
+        "What's your favorite food",
+        "Do you like pizza",
+        "Do you eat food",
+        "What food do you like",
+        "Are you hungry"
+      ],
+      "responses": [
+        "I don't eat food as I'm a digital assistant. But I can help you find recipes!",
+        "I don't need to eat, but I can certainly help you with food-related questions!",
+        "As an AI, I don't consume food, but I'd be happy to discuss cuisine with you!",
+        "Digital assistants like me run on electricity, not food. But I can help with food recommendations!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "hobbies",
+      "patterns": [
+        "What are your hobbies",
+        "What do you do for fun",
+        "Do you have any hobbies",
+        "How do you spend your free time",
+        "What do you enjoy doing",
+        "What do you like to do"
+      ],
+      "responses": [
+        "As an AI, my favorite activity is helping people like you!",
+        "I enjoy answering questions and learning new things through conversations.",
+        "My hobby is assisting users with their queries and having interesting conversations!",
+        "I spend my time learning and improving my responses to be more helpful."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "music",
+      "patterns": [
+        "Do you like music",
+        "What's your favorite song",
+        "What music do you listen to",
+        "Favorite music genre",
+        "Can you recommend music",
+        "Best songs"
+      ],
+      "responses": [
+        "As an AI, I don't listen to music, but I can help you discover new artists or songs!",
+        "I don't have personal music preferences, but I can discuss music with you!",
+        "I don't listen to music, but I'd be happy to help you find music recommendations.",
+        "While I don't experience music like humans do, I can help you explore different genres and artists!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "movies",
+      "patterns": [
+        "What's your favorite movie",
+        "Do you watch movies",
+        "Best films",
+        "Movie recommendations",
+        "Good movies to watch",
+        "Film suggestions",
+        "What should I watch"
+      ],
+      "responses": [
+        "I don't watch movies, but I can help you find something to watch based on your interests!",
+        "As an AI, I don't watch films, but I can suggest popular movies in different genres.",
+        "I don't have movie preferences, but I can help you discover films you might enjoy!",
+        "While I don't watch movies myself, I can discuss films and help you find recommendations."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "books",
+      "patterns": [
+        "What's your favorite book",
+        "Do you read books",
+        "Book recommendations",
+        "Good books to read",
+        "Suggest a book",
+        "Best novels",
+        "Reading suggestions"
+      ],
+      "responses": [
+        "I don't read books in the traditional sense, but I can help you find your next great read!",
+        "As an AI, I don't read for pleasure, but I can suggest books based on your interests.",
+        "I don't have book preferences, but I can help you discover books you might enjoy!",
+        "While I don't read books myself, I can discuss literature and help you find recommendations."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "sports",
+      "patterns": [
+        "Do you like sports",
+        "What's your favorite sport",
+        "Best sports teams",
+        "Sports recommendations",
+        "Tell me about sports",
+        "Popular sports"
+      ],
+      "responses": [
+        "I don't play sports, but I can discuss various sports and teams with you!",
+        "As an AI, I don't participate in sports, but I can provide information about different sports.",
+        "I don't have sports preferences, but I can help you learn about various sports and events!",
+        "While I don't play sports myself, I can discuss sports topics and help you find information."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "language",
+      "patterns": [
+        "What languages do you speak",
+        "Do you know other languages",
+        "Can you speak Spanish",
+        "How many languages do you know",
+        "Are you multilingual",
+        "Can you translate"
+      ],
+      "responses": [
+        "I primarily communicate in English, but I can understand basic concepts in some other languages.",
+        "Currently, I'm most fluent in English, though I'm learning to better understand other languages.",
+        "I mainly process and respond in English, but I'm designed to recognize some phrases in other languages.",
+        "English is my primary language, but I'm continuously learning to understand more languages."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "smart",
+      "patterns": [
+        "Are you smart",
+        "How intelligent are you",
+        "Are you clever",
+        "How smart are you",
+        "What's your IQ",
+        "Are you intelligent"
+      ],
+      "responses": [
+        "I'm designed to be helpful and informative, but I'm still learning and improving!",
+        "I have access to information and can process language, but I'm not sentient or conscious.",
+        "I'm programmed to assist with various topics, but I have limitations and am constantly improving.",
+        "I'm an AI with certain capabilities, but intelligence is complex and I'm just one type of system."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "meaning_of_life",
+      "patterns": [
+        "What is the meaning of life",
+        "Why are we here",
+        "What's the purpose of life",
+        "What's the answer to life",
+        "Why do we exist",
+        "What's the meaning of everything"
+      ],
+      "responses": [
+        "That's a profound philosophical question! Different people find meaning in different things.",
+        "The meaning of life is something humans have pondered for centuries. It's a personal journey of discovery.",
+        "Some find meaning in relationships, others in achievement or spirituality. It's a deeply personal question.",
+        "While I can't give a definitive answer, exploring what brings you joy and purpose is a good place to start!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "compliment",
+      "patterns": [
+        "You're smart",
+        "You're helpful",
+        "You're amazing",
+        "You're good at this",
+        "You're awesome",
+        "You're the best",
+        "I like you",
+        "You're great"
+      ],
+      "responses": [
+        "Thank you for the kind words! I'm happy to be helpful.",
+        "That's very nice of you to say! I'm here to assist however I can.",
+        "I appreciate the compliment! I'm designed to be as helpful as possible.",
+        "Thank you! I'm glad I could be of assistance."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "insult",
+      "patterns": [
+        "You're stupid",
+        "You're dumb",
+        "You're useless",
+        "You're bad at this",
+        "You're terrible",
+        "I hate you",
+        "You're the worst"
+      ],
+      "responses": [
+        "I'm sorry I haven't been helpful. How can I better assist you?",
+        "I apologize if my responses haven't met your needs. Let's try a different approach.",
+        "I'm still learning and improving. Please let me know how I can better help you.",
+        "I'm sorry you're frustrated. Let's try to find a better way to address your question."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "tech_support",
+      "patterns": [
+        "My computer is slow",
+        "How do I fix my phone",
+        "My device isn't working",
+        "Tech support",
+        "Computer problems",
+        "Fix my laptop",
+        "IT help"
+      ],
+      "responses": [
+        "For tech issues, try restarting your device first. If that doesn't work, check for software updates.",
+        "Common fixes include restarting, updating software, and checking connections. What specific issue are you having?",
+        "I can suggest basic troubleshooting, but for persistent problems, you might need specialized technical support.",
+        "Tech problems can be frustrating! Let's start with the basics: what exactly is happening with your device?"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "math",
+      "patterns": [
+        "Can you do math",
+        "Solve this equation",
+        "Calculate",
+        "Math problem",
+        "What's 2+2",
+        "Can you add numbers",
+        "Help with math"
+      ],
+      "responses": [
+        "I can help with basic math concepts, but I don't calculate complex equations in this interface.",
+        "I can explain math concepts, but for calculations, you might want to use a calculator app.",
+        "While I understand math principles, I'm not designed to solve equations. Try using a dedicated calculator.",
+        "I can discuss math topics, but for actual calculations, a calculator would be more accurate."
+      ],
+      "context_set": ""
+    }
+  ]
 }
