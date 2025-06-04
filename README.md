@@ -17,28 +17,21 @@ In this project, sentence similarity is calculated using bigrams, which divide t
 ## Installation
 1. **Clone the Repository**:
    ```bash
-   git clone <[repository_url](https://github.com/g-rtejaskumar/Chatbot-using-deep-learning)>
-   cd <Chatbot-using-deep-learning>
+   git clone https://github.com/g-rtejaskumar/Chatbot-using-deep-learning.git
+   cd Chatbot-using-deep-learning
+
 2. **Install Dependencies**:
    pip install -r requirements.txt
-
-4. **Start the Server**:
-   python manage.py runserver
-5. **Access the Application**:
-  a. Open your web browser and navigate to the link displayed in the terminal (e.g., http://127.0.0.1:8000/).
-  b. Append /index.html at the end of the URL to open the main interface of the chatbot.
 
 ## Usage
 1. **Start the Server**:  
    Use the following command to start the Django development server:  
    ```bash
    python manage.py runserver
+   
 2. **Access the Web Application**:
-  a. Open your web browser and navigate to the URL displayed in the terminal (e.g., http://127.0.0.1:8000/).
-  b. Append /index.html to the URL to access the chatbot's main interface.
-3. **Sign Up or Log In**:
-  a. If you are a new user, create an account using the signup page.
-  b. Existing users can log in to start interacting with the chatbot.
+   Open your web browser and navigate to the URL displayed in the terminal (e.g., http://127.0.0.1:8000/).
+   
 4. **Interact with the Chatbot**:
   Enter your queries in the chat interface. The chatbot will process the input and respond with relevant answers from its knowledge base.
 
