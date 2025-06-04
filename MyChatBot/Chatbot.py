@@ -1,20 +1,32 @@
+import os
 import nltk
-#nltk.download()
 from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
 
 import numpy
 import tflearn
-import tensorflow
+import tensorflow.compat.v1 as tensorflow
+tensorflow.disable_v2_behavior()
 import random
 import json
 import pickle
 
-with open("dataset\\question.json") as file:
+# Get the current script directory
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Use absolute paths
+json_path = os.path.join(script_dir, "dataset", "question.json")
+pickle_path = os.path.join(script_dir, "data.pickle")
+model_path = os.path.join(script_dir, "model", "model.tflearn")
+
+# Make sure the model directory exists
+os.makedirs(os.path.join(script_dir, "model"), exist_ok=True)
+
+with open(json_path) as file:
     data = json.load(file)
 
 try:
-    with open("data.pickle", "rb") as f:
+    with open(pickle_path, "rb") as f:
         words, labels, training, output = pickle.load(f)
 except:
     words = []
@@ -63,26 +75,28 @@ except:
     training = numpy.array(training)
     output = numpy.array(output)
 
-    with open("data.pickle", "wb") as f:
+    with open(pickle_path, "wb") as f:
         pickle.dump((words, labels, training, output), f)
 
+# Improve model architecture
 tensorflow.reset_default_graph()
 
-print(str(len(training[0]))+" "+str(len(output[0])))
-net = tflearn.input_data(shape=[None, len(training[0])])
+# Get the input size dynamically
+input_size = len(training[0])
+output_size = len(output[0])
+
+print(f"Input size: {input_size}, Output size: {output_size}")
+
+# Create a simpler, more stable model
+net = tflearn.input_data(shape=[None, input_size])
 net = tflearn.fully_connected(net, 8)
 net = tflearn.fully_connected(net, 8)
-net = tflearn.fully_connected(net, len(output[0]), activation="softmax")
+net = tflearn.fully_connected(net, output_size, activation="softmax")
 net = tflearn.regression(net)
 
 model = tflearn.DNN(net)
 
-#try:
- #   model.load("model/model.tflearn")
-#except:
-model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
-model.save("model\\model.tflearn")
-
+# Define bag_of_words function before using it
 def bag_of_words(s, words):
     bag = [0 for _ in range(len(words))]
 
@@ -95,6 +109,32 @@ def bag_of_words(s, words):
                 bag[i] = 1
             
     return numpy.array(bag)
+
+# Test the model on some examples
+def test_model():
+    print("\nTesting model with some examples:")
+    test_cases = [
+        "hi there",
+        "how are you doing",
+        "what is the meaning of life",
+        "why are we here",
+        "can you translate",
+        "what languages do you speak",
+        "you're stupid"
+    ]
+    
+    for test in test_cases:
+        results = model.predict([bag_of_words(test, words)])
+        results_index = numpy.argmax(results)
+        tag = labels[results_index]
+        confidence = results[0][results_index]
+        print(f"Input: '{test}', Predicted: '{tag}', Confidence: {confidence:.4f}")
+
+# Train with reasonable epochs
+model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
+model.save(model_path)
+
+test_model()
 
 print("Start talking with the bot (type quit to stop)!")
 while True:

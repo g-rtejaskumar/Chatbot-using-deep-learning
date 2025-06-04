@@ -1,31 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<title>JavaScript Ajax GET Demo</title>
-<script>
-function displayFullName() {
-    var request = new XMLHttpRequest();
-	var input = document.getElementById("t2").value;
-	var data = ""
-	data = data + document.getElementById("t1").value+"\n"
-	data = data + "You: "+input+"\n"
-	request.open("GET", "http://127.0.0.1:8000/ChatData?mytext="+input);
-	request.onreadystatechange = function() {
-    if(this.readyState === 4 && this.status === 200) {
-	    data = data + "Chatbot: "+this.responseText+"\n"
-		document.getElementById("t1").innerHTML = data;
-        }
-    };
-	request.send();
-}
-</script>
-</head>
-<body>
-    <div id="result">
-        <textarea name="t1" id="t1" rows="20" cols="80"></textarea>
+  <head>
+    <meta charset="utf-8" />
+    <title>Chatbot - Professional UI</title>
+    <style>
+      body {
+        background: #f4f7fa;
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .chat-container {
+        max-width: 500px;
+        margin: 40px auto;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        display: flex;
+        flex-direction: column;
+        height: 80vh;
+      }
+      .chat-header {
+        background: #0078d7;
+        color: #fff;
+        padding: 20px;
+        border-radius: 12px 12px 0 0;
+        text-align: center;
+        font-size: 1.5em;
+        letter-spacing: 1px;
+      }
+      .chat-messages {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+        font-size: 1em;
+        background: #f9fbfd;
+      }
+      .chat-input-area {
+        display: flex;
+        border-top: 1px solid #eee;
+        padding: 16px;
+        background: #fafbfc;
+        border-radius: 0 0 12px 12px;
+      }
+      .chat-input {
+        flex: 1;
+        padding: 10px 14px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1em;
+        outline: none;
+        margin-right: 10px;
+        transition: border 0.2s;
+      }
+      .chat-input:focus {
+        border: 1.5px solid #0078d7;
+      }
+      .chat-send-btn {
+        background: #0078d7;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        padding: 10px 22px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .chat-send-btn:hover {
+        background: #005fa3;
+      }
+      .user-msg {
+        color: #222;
+        margin-bottom: 8px;
+      }
+      .bot-msg {
+        color: #0078d7;
+        margin-bottom: 16px;
+      }
+    </style>
+    <script>
+      function displayFullName() {
+        var request = new XMLHttpRequest();
+        var input = document.getElementById("t2").value;
+        var chatBox = document.getElementById("chat-messages");
+        if (!input.trim()) return;
+        // Append user message
+        chatBox.innerHTML +=
+          '<div class="user-msg"><b>You:</b> ' + input + "</div>";
+        request.open(
+          "GET",
+          "http://127.0.0.1:8000/ChatData?mytext=" + encodeURIComponent(input)
+        );
+        request.onreadystatechange = function () {
+          if (this.readyState === 4 && this.status === 200) {
+            chatBox.innerHTML +=
+              '<div class="bot-msg"><b>Chatbot:</b> ' +
+              this.responseText +
+              "</div>";
+            chatBox.scrollTop = chatBox.scrollHeight;
+          }
+        };
+        request.send();
+        document.getElementById("t2").value = "";
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("t2")
+          .addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+              displayFullName();
+            }
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="chat-container">
+      <div class="chat-header">Chatbot Application</div>
+      <div class="chat-messages" id="chat-messages"></div>
+      <div class="chat-input-area">
+        <input
+          type="text"
+          id="t2"
+          class="chat-input"
+          placeholder="Type your message..."
+          autocomplete="off"
+        />
+        <button class="chat-send-btn" onclick="displayFullName()">Send</button>
+      </div>
     </div>
-	<input type="text" name="t2" id="t2" size="60"/>
-    <button type="button" onclick="displayFullName()">Display Full Name</button>
-</body>
+  </body>
 </html>

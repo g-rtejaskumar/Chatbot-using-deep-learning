@@ -1,60 +1,171 @@
 {% load static %}
-<html>
-<head>
-<title>Chatbot Application</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link href="{% static 'default.css' %}" rel="stylesheet" type="text/css" media="screen" />
-</head>
-<body>
-<div id="wrapper">
-  <div id="header">
-    <div id="logo">
-      <h1><font color="orange" size=6>Chatbot Application</font></h1>
-	  <marquee><font color="pink" size=4>CHATBOT APPLICATION</font></marquee>
-    </div>
-   
-  
-    </div>
-  </div>
-  <div id="menu">
-    <ul>
-      <li><a href="{% url 'MyChatBot' %}">Home</a></li>
-      <li><a href="{% url 'User' %}">User</a></li>
-      <li><a href="{% url 'Register' %}">Register Here</a></li>
-      
-   </ul>
-  </div>
-  <div id="page">
-   <div id="content">
-      <div class="post">
-        <div class="title">
-          <h2>Chatbot Online</h2>
-         </div>
-        <div class="entry">
-		 <br/><br/><br/>
-{{ data }}
-	 
-	 <br>
-          <p><img src="{% static 'images/images.jpg' %}" alt="" width="890" height="200" class="left" /><p></p><font size="4" color="white">
-          <center><br/>About Chatbot</center></font></p>
-          <p><font size="" color="white">Chatbot can be described as software that can chat with people using artificial intelligence. Chatbots
-are generally used to respond quickly to users.</p>
-
- <p><font size="" color="white">Chatbots, a common name for automated conversational interfaces, present a new way for individuals
-to interact with computer systems. Traditionally, to get a question answered by a software program
-involves using a search engine, or filling out a form. A chatbot allows a user to simply ask questions in
-the same manner that they would address a human. There are many well-known voice-based chatbots
-currently available in the market: Google Assistant, Alexa and Siri. Chatbots are currently being adopted
-at a high rate on computer chat platforms.</p>
-          </div>
-        
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI Chatbot - Home</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: linear-gradient(120deg, #0078d7 0%, #00c6fb 100%);
+        min-height: 100vh;
+        color: #222;
+        display: flex;
+        flex-direction: column;
+      }
+      .container {
+        max-width: 500px;
+        margin: 40px auto;
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+        padding: 36px 28px 28px 28px;
+        text-align: center;
+      }
+      h1 {
+        color: #0078d7;
+        font-size: 2.2rem;
+        margin-bottom: 0.5em;
+        letter-spacing: 1px;
+      }
+      .chatbot-anim {
+        display: block;
+        margin: 0 auto 22px auto;
+        width: 120px;
+        height: 120px;
+        max-width: 60vw;
+        max-height: 30vw;
+      }
+      .subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 1.5em;
+        color: #444;
+      }
+      .features {
+        margin-bottom: 2em;
+        padding-left: 0;
+        list-style: none;
+        color: #0078d7;
+        text-align: left;
+      }
+      .features li {
+        margin-bottom: 0.7em;
+        font-size: 1.08rem;
+        padding-left: 1.2em;
+        position: relative;
+      }
+      .features li:before {
+        content: "•";
+        color: #00c6fb;
+        position: absolute;
+        left: 0;
+      }
+      .cta-btn {
+        background: #0078d7;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 16px 36px;
+        font-size: 1.15em;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 18px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        transition: background 0.2s, transform 0.2s;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .cta-btn:active {
+        transform: scale(0.97);
+      }
+      .cta-btn:hover {
+        background: #005fa3;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 40px;
+        color: #e0e0e0;
+        font-size: 0.95rem;
+      }
+      @media (max-width: 600px) {
+        .container {
+          margin: 10vw 2vw 0 2vw;
+          padding: 18px 6px;
+          max-width: 98vw;
+        }
+        h1 {
+          font-size: 1.3rem;
+        }
+        .subtitle {
+          font-size: 1rem;
+        }
+        .cta-btn {
+          width: 100%;
+          font-size: 1em;
+          padding: 14px 0;
+        }
+        .features li {
+          font-size: 1em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <svg
+        class="chatbot-anim"
+        viewBox="0 0 160 160"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <ellipse cx="80" cy="120" rx="55" ry="18" fill="#e3f0fa" />
+        <circle cx="80" cy="70" r="50" fill="#0078d7" />
+        <ellipse cx="80" cy="70" rx="38" ry="32" fill="#fff" />
+        <ellipse cx="62" cy="68" rx="6" ry="8" fill="#0078d7">
+          <animate
+            attributeName="cy"
+            values="68;72;68"
+            dur="1.2s"
+            repeatCount="indefinite"
+          />
+        </ellipse>
+        <ellipse cx="98" cy="68" rx="6" ry="8" fill="#0078d7">
+          <animate
+            attributeName="cy"
+            values="68;72;68"
+            dur="1.2s"
+            repeatCount="indefinite"
+          />
+        </ellipse>
+        <ellipse cx="80" cy="88" rx="14" ry="6" fill="#e3f0fa" />
+        <ellipse cx="80" cy="90" rx="10" ry="3" fill="#0078d7" />
+        <rect x="70" y="30" width="20" height="8" rx="4" fill="#fff" />
+        <circle cx="60" cy="40" r="4" fill="#fff" />
+        <circle cx="100" cy="40" r="4" fill="#fff" />
+      </svg>
+      <h1>🤖 AI Chatbot Project</h1>
+      <div class="subtitle">
+        Welcome to your personal AI-powered assistant!<br />
+        This chatbot is built with Django, TFLearn, and NLP to answer your
+        questions and help you interact with AI in real time.
       </div>
-     
-       
-       
+      <ul class="features">
+        <li>💬 Natural language understanding</li>
+        <li>⚡ Fast, responsive, and easy to use</li>
+        <li>🔒 Secure and private</li>
+        <li>📱 Fully responsive for mobile and desktop</li>
+        <li>🛠️ Easily trainable with your own intents</li>
+      </ul>
+      <a href="{% url 'UserScreen' %}" class="cta-btn">Start Chatting</a>
     </div>
-    
-  </div>
-
-</body>
+    <div class="footer">
+      &copy; {{ year|default:"2025" }} AI Chatbot Project. Powered by Django
+      &amp; TFLearn.
+    </div>
+  </body>
 </html>
