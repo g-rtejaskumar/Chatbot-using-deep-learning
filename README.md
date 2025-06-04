@@ -21,24 +21,10 @@ In this project, sentence similarity is calculated using bigrams, which divide t
    cd <repository_name>
 2. **Install Dependencies**:
    pip install -r requirements.txt
-3. **Set Up MySQL Database**:
-   a. Install MySQL and create a new database for the chatbot.
-   b. Update the database configuration in the project settings file (settings.py) with your database credentials:
-   
-            DATABASES = {
-                'default': {
-                    'ENGINE': 'django.db.backends.mysql',
-                    'NAME': '<database_name>',
-                    'USER': '<username>',
-                    'PASSWORD': '<password>',
-                    'HOST': 'localhost',
-                    'PORT': '3306',
-                }
-            }
-            
-5. **Start the Server**:
+
+4. **Start the Server**:
    python manage.py runserver
-6. **Access the Application**:
+5. **Access the Application**:
   a. Open your web browser and navigate to the link displayed in the terminal (e.g., http://127.0.0.1:8000/).
   b. Append /index.html at the end of the URL to open the main interface of the chatbot.
 
@@ -58,18 +44,10 @@ In this project, sentence similarity is calculated using bigrams, which divide t
 
 ## Screenshots
 ### User Interface
-![User Interface](./Screenshot/Home.png)
-
-### Signup
-![Signup](./Screenshot/Signup.png)
-![Signup completed](./Screenshot/Signup1.png)
-
-### Login
-![Login](./Screenshot/Login.png)
+![User Interface](./Screenshot/Home.jpg)
 
 ### Chatbot Interface
-![Chatbot Interface](./Screenshot/chatbot.png)
-![Chat with the Chatbot](./Screenshot/chatbot1.png)
+![Chat with the Chatbot](./Screenshot/chatbot.jpg)
 
 ## Contributing
 Contributions are welcome! Feel free to report issues, suggest enhancements, or submit pull requests to improve this project. Ensure your contributions align with the project’s goals and coding standards.
