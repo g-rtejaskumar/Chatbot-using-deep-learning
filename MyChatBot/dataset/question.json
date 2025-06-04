@@ -537,6 +537,17 @@
         "I can discuss math topics, but for actual calculations, a calculator would be more accurate."
       ],
       "context_set": ""
+    },
+    {
+      "tag": "unknown",
+      "patterns": ["xyz123", "qwerty456", "randomtext"],
+      "responses": [
+        "I'm not sure I understand. Could you rephrase that?",
+        "I didn't quite catch that. Can you say it differently?",
+        "I'm still learning. Could you try asking in another way?",
+        "I'm not sure how to respond to that. Could you be more specific?"
+      ],
+      "context_set": ""
     }
   ]
 }

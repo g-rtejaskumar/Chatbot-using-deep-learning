@@ -3,6 +3,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path("", views.UserScreen, name="UserScreen"),  # Make this the default route
+    path("", views.landing, name="landing"),  
+    path("chat/", views.UserScreen, name="UserScreen"), 
     path("ChatData", views.ChatData, name="ChatData"),
 ]
