@@ -17,8 +17,8 @@ In this project, sentence similarity is calculated using bigrams, which divide t
 ## Installation
 1. **Clone the Repository**:
    ```bash
-   git clone <repository_url>
-   cd <repository_name>
+   git clone <[repository_url](https://github.com/g-rtejaskumar/Chatbot-using-deep-learning)>
+   cd <Chatbot-using-deep-learning>
 2. **Install Dependencies**:
    pip install -r requirements.txt
 
