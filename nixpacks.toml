@@ -1,0 +1,6 @@
+[phases.setup]
+nixpkgs = [
+  "python39",
+  "gcc", 
+  "postgresql"  # provides libpq and pg_config needed for psycopg2-binary
+]
